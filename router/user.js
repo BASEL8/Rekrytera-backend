@@ -1,0 +1,21 @@
+const express = require('express');
+const router = express.Router()
+const { users, user, publish, updateUser, deleteMyProfile, listUsers, companyJustForYou, rejectRequest, acceptRequest, contactMe, cancelRequest,blockCompany,unblockCompany } = require('../controller/user')
+const { requiresignin, authMiddleware } = require('../controller/auth')
+const { updateUserValidation } = require('../validation/user')
+const { runValidation } = require('../validation')
+
+router.get('/user',requiresignin, authMiddleware, user)
+router.put('/user/publish?', requiresignin, authMiddleware, publish)
+router.put('/user/update?', updateUserValidation,runValidation,requiresignin, authMiddleware, updateUser)
+router.get('/users', requiresignin, authMiddleware, users)
+router.get('/user/companyJustForYou', requiresignin, authMiddleware, companyJustForYou)
+router.post('/user/contactMe', requiresignin, authMiddleware, contactMe)
+router.post('/users', requiresignin, listUsers)
+router.post('/user/reject', requiresignin, authMiddleware, rejectRequest)
+router.post('/user/cancelRequest', requiresignin, authMiddleware, cancelRequest)
+router.post('/user/accept', requiresignin, authMiddleware, acceptRequest)
+router.post('/user/block', requiresignin, authMiddleware, blockCompany)
+router.post('/user/unblock', requiresignin, authMiddleware, unblockCompany)
+router.delete('/delete-my-account', requiresignin, authMiddleware, deleteMyProfile)
+module.exports = router;

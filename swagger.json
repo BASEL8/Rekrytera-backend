@@ -1,0 +1,548 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "EX Application API",
+    "description": "nodejs for my project",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:8000",
+  "basePath": "/api",
+  "tags": [
+    {
+      "name": "Auth",
+      "description": "API for authentications"
+    },
+    {
+      "name": "Users",
+      "description": "API for users in the system"
+    },
+    {
+      "name": "Company",
+      "description": "API for companies in the system"
+    },
+    {
+      "name": "Profession",
+      "description": "API for professions in the system"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/users": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get all users in system",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "description": "list users with filter",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "User that we want to create",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "New user is created",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    },
+    "/user/publish": {
+      "put": {
+        "tages": [
+        "Users"
+        ],
+        "summery": "",
+        "responses": {
+          "200": {
+            "description": "your profile is published"
+          }
+        }
+      }
+    },
+    "/user/update": {
+      "put": {
+        "summery": "update user profile",
+        "tages": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "your profile is up to date"
+          }
+        }
+      }
+    },
+    "/delete-my-account": {
+      "delete": {
+        "summery": "delete user",
+        "tages": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "your account is deleted"
+          }
+        }
+      }
+    },
+    "/remove-user/:userId": {
+      "delete": {
+        "summery": "update user profile",
+        "tages": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "account is deleted"
+          }
+        }
+      }
+    },
+    "/pre-signup": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "description": "Create new user in system",
+        "parameters": [
+          {
+            "name": "username",
+            "email": "email",
+            "in": "body",
+            "description": "User that we want to create"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "we sent email with link"
+          }
+        }
+      }
+    },
+    "/signup": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Get user with given ID",
+        "responses": {
+          "200": {
+            "description": "User is found",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    },
+    "/signin": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Get user with given ID",
+        "responses": {
+          "200": {
+            "description": "User is found",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    },
+    "/signout": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Get user with given ID",
+        "responses": {
+          "200": {
+            "description": "User is found",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    },
+    "/forget-password": {
+      "put": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Get user with given ID",
+        "responses": {
+          "200": {
+            "description": "User is found",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    },
+    "/reset-password": {
+      "put": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Get user with given ID",
+        "responses": {
+          "200": {
+            "description": "User is found",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    },
+    "/company/pre-signup": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Get user with given ID",
+        "responses": {
+          "200": {
+            "description": "User is found",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    },
+    "/company/signup": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Get user with given ID",
+        "responses": {
+          "200": {
+            "description": "User is found",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    },
+    "/company/signin": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Get user with given ID",
+        "responses": {
+          "200": {
+            "description": "User is found",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    },
+    "/company/forget-password": {
+      "put": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Get user with given ID",
+        "responses": {
+          "200": {
+            "description": "User is found",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      }
+    },
+    "/company/reset-password": {
+      "put": {
+        "tages": [
+          "Auth"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "User": {
+      "required": [
+        "username",
+        "name",
+        "email",
+        "hashed_password",
+        "profile"
+      ],
+      "properties": {
+        "username": {
+          "type": "String",
+          "uniqueItems": true
+        },
+        "name": {
+          "type": "String"
+        },
+        "email": {
+          "type": "String",
+          "uniqueItems": true
+        },
+        "profile": {
+          "type": "String",
+          "required": true
+        },
+        "hashed_password": {
+          "type": "String",
+          "required": true
+        },
+        "salt": {
+          "type": "String"
+        },
+        "about": {
+          "type": "String"
+        },
+        "role": {
+          "type": "Number",
+          "default": 0
+        },
+        "resetPassword": {
+          "type": "String"
+        },
+        "published": {
+          "type": "Boolean",
+          "default": false
+        },
+        "wantToWorkAs": {
+          "type": "String"
+        },
+        "cities": {
+          "type": "array"
+        },
+        "kindOfEmployment": {
+          "type": "String"
+        },
+        "salary": {
+          "type": "String"
+        },
+        "languages": {
+          "type": "array"
+        },
+        "lookingForJob": {
+          "type": "String"
+        },
+        "available": {
+          "type": "String"
+        },
+        "reasonToNewJob": {
+          "type": "String"
+        },
+        "workingRemotely": {
+          "type": "String"
+        },
+        "priorityBenefits": {
+          "type": "array"
+        },
+        "profession": {
+          "$ref": "#/definitions/Profession"
+        }
+      }
+    },
+    "Profession": {
+      "required": [
+        "name",
+        "relatedId"
+      ],
+      "properties": {
+        "name": {
+          "type": "String",
+          "trim": true,
+          "required": true,
+          "max": 32,
+          "unique": true,
+          "index": true,
+          "lowercase": true
+        },
+        "relatedId": {
+          "type": "String"
+        },
+        "salt": {
+          "type": "String"
+        },
+        "years": {
+          "type": "Number"
+        },
+        "subProfessions": {
+          "type": [],
+          "$ref": "#/definitions/SubProfession"
+        }
+      }
+    },
+    "SubProfession": {
+      "required": [
+        "name",
+        "relatedId"
+      ],
+      "properties": {
+        "name": {
+          "type": "String",
+          "index": true
+        },
+        "years": {
+          "type": "Number"
+        },
+        "relatedId": {
+          "type": "String"
+        }
+      }
+    },
+    "Company": {
+      "required": [
+        "companyName",
+        "organisationNumber",
+        "email",
+        "profile",
+        "hashed_password"
+      ],
+      "properties": {
+        "companyName": {
+          "type": "String",
+          "trim": true,
+          "required": true,
+          "unique": true,
+          "index": true,
+          "lowercase": true
+        },
+        "organisationNumber": {
+          "type": "Number",
+          "trim": true,
+          "required": true,
+          "unique": true
+        },
+        "confirmed": {
+          "type": "Boolean",
+          "default": false
+        },
+        "profileComplete": {
+          "type": "Boolean",
+          "default": false
+        },
+        "email": {
+          "type": "String",
+          "trim": true,
+          "required": true,
+          "lowercase": true,
+          "unique": true
+        },
+        "profile": {
+          "type": "String",
+          "required": true
+        },
+        "website": {
+          "type": "String"
+        },
+        "hashed_password": {
+          "type": "String",
+          "required": true
+        },
+        "salt": {
+          "type": "String"
+        },
+        "about": {
+          "type": "String"
+        },
+        "role": {
+          "type": "Number",
+          "default": 0
+        },
+        "resetPassword": {
+          "type": "String"
+        },
+        "logo": {
+          "type": "Buffer",
+          "contentType": "String"
+        }
+      }
+    },
+    "Announce": {
+      "required": [],
+      "properties": {
+        "wantToWorkAs": {
+          "type": "String"
+        },
+        "cities": {
+          "type": []
+        },
+        "kindOfEmployment": {
+          "type": "String"
+        },
+        "salary": {
+          "type": "String"
+        },
+        "lookingForJob": {
+          "type": "String"
+        },
+        "available": {
+          "type": "String"
+        },
+        "reasonToNewJob": {
+          "type": "String"
+        },
+        "workingRemotely": {
+          "type": "String"
+        },
+        "priorityBenefits": {
+          "type": []
+        },
+        "profession": {
+          "$ref": "#/definitions/Profession",
+          "require": true
+        },
+        "company": {
+          "$ref": "#/definitions/Company",
+          "require": true
+        }
+      }
+    }
+  }
+}
